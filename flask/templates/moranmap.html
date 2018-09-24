@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+
+
+	<title>Spatial Autocorrelation</title>
+  <style>
+  html{
+	height: 100%;
+}
+ body{
+    background-color: #e3e4e6;
+
+    }
+    {
+      font-family: sans-serif;
+  }
+  .msgContainer{
+        position: absolute;
+        width: 575px; /*the image width*/
+        height: 600px; /*the image height*/
+        margin-left: 1100px; /*half the image width*/
+        margin-top: -645px; /*half the image height*/
+    }
+    .expContainer {
+        position: absolute;
+        min-height: 100px;
+        width: 625px;
+        left: 51.55%;
+        top: -1%;
+        margin-right: 100px; 
+        margin-top:  10px;
+
+  }
+    .moranContainer{
+        position: absolute;
+    	min-height: 100px;
+    	width: 623px;
+        left: 52.70%;
+        top: 3%;
+        margin-right: 100px; 
+        margin-top: 450px;
+    }
+
+ 
+  </style>
+
+<script>L_PREFER_CANVAS=false; L_NO_TOUCH=false; L_DISABLE_3D=false;</script> 
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.js"></script> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script> 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.css"/> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/> 
+<link rel="stylesheet" href="https://rawgit.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/> 
+<style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style> 
+<style>#map{ position: absolute; width: 40.0%; height: 100.0%;left: 10%; top: -1%;}</style> 
+<script src="https://leaflet.github.io/Leaflet.heat/dist/leaflet-heat.js"></script> 
+
+
+
+</head>
+<body style="background-color:#e3e4e6;">
+  
+
+<article>
+    <div class='expContainer' align='right'> <img src='\static\exp{{id}}.png' style="border: 2px solid #008080";align='right'></div>
+    <div class='moranContainer'><img src='\static\mi{{id}}.png' style="border: 2px solid #008080" align='right'></div>
+    <div class="folium-map" id="map" align='left'></div> 
+    
+    
+    <br>
+   
+
+
+</article>
+
+</body>
+    {% if map %}
+        {% if centerpt %}
+        <script> 
+        var bounds = null; 
+        var map = L.map( 'map', { center: {{centerpt}}, zoom: 7, maxBounds: bounds, layers: [], worldCopyJump: false, crs: L.CRS.EPSG3857, zoomControl: true, }); 
+        var tile_layer = L.tileLayer( 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', 
+            { "attribution": null, "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "subdomains": "abc" }).addTo(map); 
+        var heat_map = L.heatLayer( {{map}}, 
+                        { minOpacity: 0.5, maxZoom: 18, max: 1.0, radius: 25, blur: 15, 
+                        gradient: {"0.4": "teal", "0.65": "red", "1": "yellow"} }) .addTo(map); 
+        </script>
+        {% endif %}
+    {% endif %} 
+    
+    <br>
+
+ 
+         
+   
+</html>
+
+

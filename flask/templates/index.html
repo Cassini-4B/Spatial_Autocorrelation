@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Spatial Autocorrelation</title>
+  <style>
+  html{
+	height: 100%;
+}
+ body{
+    background-image: "basemap.png";
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    }
+    {
+      font-family: sans-serif;
+  }
+  .button {
+    background-color: #008080;
+    border: none;
+    color: Black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  </style>
+
+</head>
+<body background= '\static\basemap.png'; align="center">
+
+   <center><h1 style="color:#2e1e25; font-size:300%; font-family:arial;">Detecting Spatial Autocorrelation in your Data</h1></center>
+   
+  <form action="/mapmoran/" method="post">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+ <center><h3 style="color:#2e1e25; font-size:150%; font-family:arial;">Upload a csv file  that contains </h3></center>
+ <center><h3 style="color:#2e1e25; font-size:150%; font-family:arial;">data by location (latitude, longitude).</h3></center>
+ <center><input type='file' name='geodata'></center>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+   <center><h3 style="color:#2e1e25; font-size:150%; font-family:arial;">Click button below to determine if there are any underlying spatial dependencies in your data.</h3></center>
+    <center><button type="submit" class="button">
+      Analyze Data
+      </button></center>
