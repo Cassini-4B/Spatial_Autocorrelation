@@ -25,3 +25,6 @@ I have chosen to use Moran's I (https://en.wikipedia.org/wiki/Moran%27s_I) as th
 The Flask app that I built maps out your data, and then shows you 2 plots--the top one is the kde or distribution of your points where the red line in the center is the spatial autocorrelation you would see if there was no spatial pattern in your data (which should be around zero, since the placement of points would be random).  The second plot on the bottom shows you the result from calculating Moran's I.  From there you can just compare the two plots.  I've also included the p-value of Moran's I, so you can see if your autocorrelation is statistically significant.
 
 If you're interested in looking for local patterns, you can calculate the local Moran's I for each geographic unit in your data.  This will help you easily identify hotspots or coldspots, ie which locations are displaying higher or lower than expected values in your data.
+
+![alt text](https://github.com/Cassini-4B/Spatial_Autocorrelation/blob/master/spatial_flask1.png)
+![alt text](https://github.com/Cassini-4B/Spatial_Autocorrelation/blob/master/spatial_flask2.png)
